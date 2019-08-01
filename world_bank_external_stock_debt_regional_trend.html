@@ -59,7 +59,6 @@ return {
      })
   };
 });
-//console.log(dataReady)
 
 // A color scale: one color for each group
 var myColor = d3.scaleOrdinal().domain(allGroup).range(d3.schemeCategory10);   
@@ -79,23 +78,10 @@ svg.append("text")
     .style("text-anchor", "middle")
     .text("Year");
     
-// Note Label
-/*
-svg.append("text")
-    .attr("class", "x label")
-    .attr("x", -30)
-    .attr("y", height + 60)
-    .attr("dx", "1em")
-    .style("text-anchor", "left")
-    .style("wrap",300)
-    .text("Note:External debt stocks comprise public and publicly guaranteed long-term external debt, private nonguaranteed long-term external debt, use of IMF credit, and short-term external debt, including interest arrears on long-term debt.");
-*/
-
 // Add Y axis
 var y = d3.scaleLinear().domain( [100,1700]).range([ height, 0 ]);
     svg.append("g")
       .call(d3.axisLeft(y));
-
 
 // text label for the y axis
   svg.append("text")
@@ -198,7 +184,6 @@ svg
       .style("fill", function(d){ return myColor(d.name) })
       .style("font-size", 15)
 
-//duration(1000).ease(d3.easeLinear).
 // Add a legend (interactive)
 svg
   .selectAll("myLegend")
@@ -219,8 +204,7 @@ svg
       d3.selectAll("." + d.name).transition().delay(function(d, i) { return i * 1000; }).duration(500).ease(d3.easeLinear).style("opacity", currentOpacity == 1 ? 0:1)
  })
 
-
-// Features of the annotation
+// Annotation
 //South Asia
 const sa_annotations = [
   {
